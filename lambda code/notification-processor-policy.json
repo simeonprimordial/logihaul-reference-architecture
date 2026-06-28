@@ -1,0 +1,31 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ConsumeOrderQueue",
+      "Effect": "Allow",
+      "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+      ],
+      "Resource": "arn:aws:sqs:af-south-1:ACCOUNT_ID:LogiHaul-OrderConfirmations"
+    },
+    {
+      "Sid": "PublishOrderAlert",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:af-south-1:ACCOUNT_ID:LogiHaul-OrderAlerts"
+    },
+    {
+      "Sid": "WriteLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:af-south-1:ACCOUNT_ID:log-group:/aws/lambda/LogiHaul-NotificationProcessor:*"
+    }
+  ]
+}

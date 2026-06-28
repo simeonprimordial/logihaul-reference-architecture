@@ -1,0 +1,27 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WriteOrderToDynamoDB",
+      "Effect": "Allow",
+      "Action": "dynamodb:PutItem",
+      "Resource": "arn:aws:dynamodb:af-south-1:ACCOUNT_ID:table/LogiHaul-Orders"
+    },
+    {
+      "Sid": "SendToOrderQueue",
+      "Effect": "Allow",
+      "Action": "sqs:SendMessage",
+      "Resource": "arn:aws:sqs:af-south-1:ACCOUNT_ID:LogiHaul-OrderConfirmations"
+    },
+    {
+      "Sid": "WriteLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:af-south-1:ACCOUNT_ID:log-group:/aws/lambda/LogiHaul-OrderProcessor:*"
+    }
+  ]
+}
