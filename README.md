@@ -5,7 +5,7 @@
 
 A serverless-first, multi-AZ logistics platform built on AWS, designed to absorb 50x traffic spikes during promotional events or flood-driven demand surges across 36 Nigerian states, without manual intervention.
 
-c:\Users\igesi\Downloads\Logihaul project\Architecture & Documentation\S7-C1.png
+![Architecture Diagram](images/S7-C1.png)
 ---
 
 ## Overview
